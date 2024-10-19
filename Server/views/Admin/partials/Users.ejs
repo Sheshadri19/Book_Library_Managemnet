@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= title %></title>
+  
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons  -->
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css"> 
+</head>
+<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+  <%- include('../layouts/navbar') %>
+  <%- include('../layouts/sidebar') %>
+
+  <div class="content-wrapper">
+    <section class="content">
+      <div class="container">
+        <h1 class="text-center">All Users</h1>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Borrowed Books</th>
+              <th scope="col">Borrowed Date</th>
+              <th scope="col">Due Date</th>
+              <th scope="col">Status</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% let count = 0; %>
+            <% for (const item of userData) { %>
+              <tr>
+                <th scope="row"><%= ++count %></th>
+                <td><%= item.name %></td>
+                <td><%= item.email %></td>
+                
+                <!-- Borrowed Books -->
+                <td>
+                  <% if (item.bookings.length > 0) { %>
+                    <ul>
+                      <% for (const [index, booking] of item.bookings.entries()) { %>
+                        <li><%= item.borrowedBooks[index]?.title || 'Unknown Title' %></li>
+                      <% } %>
+                    </ul>
+                  <% } else { %>
+                    No Books Borrowed
+                  <% } %>
+                </td>
+        
+                <!-- Borrowed Date -->
+                <td>
+                  <% if (item.bookings.length > 0) { %>
+                    <ul>
+                      <% for (const booking of item.bookings) { %>
+                        <li><%= new Date(booking.borrowDate).toLocaleDateString() %></li>
+                      <% } %>
+                    </ul>
+                  <% } else { %>
+                    -
+                  <% } %>
+                </td>
+        
+                <!-- Due Date -->
+                <td>
+                  <% if (item.bookings.length > 0) { %>
+                    <ul>
+                      <% for (const booking of item.bookings) { %>
+                        <li>
+                          <%= new Date(booking.dueDate).toLocaleDateString() %>
+                          <% if (new Date(booking.dueDate) < new Date()) { %>
+                            <span style="color: red;">(Overdue)</span>
+                          <% } %>
+                        </li>
+                      <% } %>
+                    </ul>
+                  <% } else { %>
+                    -
+                  <% } %>
+                </td>
+        
+                <!-- Status -->
+                <td>
+                  <span>
+                    <% if (item.blocked) { %>
+                      <span style="color: red;">Blocked</span>
+                    <% } else { %>
+                      <span style="color: green;">Unblocked</span>
+                    <% } %>
+                  </span>
+                </td>
+        
+                <!-- Action -->
+                <td>
+                  <% if (item.blocked) { %>
+                    <a href="/block/unblock/<%= item._id %>">
+                      <button class="btn btn-warning">Unblock</button>
+                    </a>
+                  <% } else { %>
+                    <a href="/block/unblock/<%= item._id %>">
+                      <button class="btn btn-success">Block</button>
+                    </a>
+                  <% } %>
+                </td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+        
+      </div>
+    </section>
+  </div>
+
+  <%- include('../layouts/footer') %>
+</div>
+
+<!-- REQUIRED SCRIPTS -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/dist/js/adminlte.js"></script>
+</body>
+</html>

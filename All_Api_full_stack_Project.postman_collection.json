@@ -1,0 +1,404 @@
+{
+	"info": {
+		"_postman_id": "52f929dc-a7fa-4cc3-891b-710adcb7541c",
+		"name": "All_Api_full_stack_Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29691512"
+	},
+	"item": [
+		{
+			"name": "User_Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"mondalsheshadri2000@gmail.com\",\r\n    \"password\":\"456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1600/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1600",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User_Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Sekhar",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "mondalsheshadri2000@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "456789",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/Download 2/course_1663052056-780x470.webp"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:1600/user/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1600",
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User_OtpVerify",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"mondalsheshadri2000@gmail.com\",\r\n    \"otp\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1600/user/otpVerify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1600",
+					"path": [
+						"user",
+						"otpVerify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User_Logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1600/user/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1600",
+					"path": [
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User_Confirmation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1600/user/confirmation/:email/:token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1600",
+					"path": [
+						"user",
+						"confirmation",
+						":email",
+						":token"
+					],
+					"variable": [
+						{
+							"key": "email",
+							"value": ""
+						},
+						{
+							"key": "token",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User_Password_Reset",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"\",\r\n    \"otp\":\"\",\r\n    \"password\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1600/user/reset-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1600",
+					"path": [
+						"user",
+						"reset-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User_Forget-Password_Otp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1600/user/send-otp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1600",
+					"path": [
+						"user",
+						"send-otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All_Category_list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1600/All/categories/Api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1600",
+					"path": [
+						"All",
+						"categories",
+						"Api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All_Book_List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1600/All/books/Api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1600",
+					"path": [
+						"All",
+						"books",
+						"Api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check_Block_UserId",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZjVhOGI1MzU4NzdkOTgzMDk3YTE3NCIsInJvbGUiOiJVc2VyIiwidXNlcm5hbWUiOiJTZWtoYXIiLCJlbWFpbCI6Im1vbmRhbHNoZXNoYWRyaTIwMDBAZ21haWwuY29tIiwiaW1hZ2UiOiIvVXBsb2FkL3VzZXIvMTcyNzM3NTU0MDk4Ni53ZWJwIiwiaWF0IjoxNzI3Mzc5MDE1LCJleHAiOjE3Mjk5NzEwMTV9.7m1Mbrt7bu9om_LCLro7syTsUYiCUwGuFGn05PkMO50",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:1600/checkBlockStatus/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1600",
+					"path": [
+						"checkBlockStatus",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show_Borrowed_Book",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZjVhOGI1MzU4NzdkOTgzMDk3YTE3NCIsInJvbGUiOiJVc2VyIiwidXNlcm5hbWUiOiJTZWtoYXIiLCJlbWFpbCI6Im1vbmRhbHNoZXNoYWRyaTIwMDBAZ21haWwuY29tIiwiaW1hZ2UiOiIvVXBsb2FkL3VzZXIvMTcyNzM3NTU0MDk4Ni53ZWJwIiwiaWF0IjoxNzI3Mzc5MDE1LCJleHAiOjE3Mjk5NzEwMTV9.7m1Mbrt7bu9om_LCLro7syTsUYiCUwGuFGn05PkMO50",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:1600/user/show-borrow-book/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1600",
+					"path": [
+						"user",
+						"show-borrow-book",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Book_By-user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZjVhOGI1MzU4NzdkOTgzMDk3YTE3NCIsInJvbGUiOiJVc2VyIiwidXNlcm5hbWUiOiJTZWtoYXIiLCJlbWFpbCI6Im1vbmRhbHNoZXNoYWRyaTIwMDBAZ21haWwuY29tIiwiaW1hZ2UiOiIvVXBsb2FkL3VzZXIvMTcyNzM3NTU0MDk4Ni53ZWJwIiwiaWF0IjoxNzI3Mzc5MDE1LCJleHAiOjE3Mjk5NzEwMTV9.7m1Mbrt7bu9om_LCLro7syTsUYiCUwGuFGn05PkMO50",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:1600/borrow/:userId/:bookId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1600",
+					"path": [
+						"borrow",
+						":userId",
+						":bookId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": ""
+						},
+						{
+							"key": "bookId",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User_Borrowed_Status_check",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZjVhOGI1MzU4NzdkOTgzMDk3YTE3NCIsInJvbGUiOiJVc2VyIiwidXNlcm5hbWUiOiJTZWtoYXIiLCJlbWFpbCI6Im1vbmRhbHNoZXNoYWRyaTIwMDBAZ21haWwuY29tIiwiaW1hZ2UiOiIvVXBsb2FkL3VzZXIvMTcyNzM3NTU0MDk4Ni53ZWJwIiwiaWF0IjoxNzI3Mzc5MDE1LCJleHAiOjE3Mjk5NzEwMTV9.7m1Mbrt7bu9om_LCLro7syTsUYiCUwGuFGn05PkMO50",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:1600/checkBooking/:userId/:bookId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1600",
+					"path": [
+						"checkBooking",
+						":userId",
+						":bookId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": ""
+						},
+						{
+							"key": "bookId",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
